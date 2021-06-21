@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@300&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Mukta Malar', sans-serif;
+}
+*::before, *::after{
+  padding: 0;
+  margin: 0;
+}
+:root{
+  --blue: #1E325C;
+  --orange: #FCA311;
+  --gray: #E5E5E5;
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(black 0%, var(--blue) 100%);
+}
+.wrapper{
+  width: 380px;
+  padding: 25px 30px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  background: white;/*
+  box-shadow: 0px 6px 15px var(--lightbshadow);*/
+}
+.wrapper i{
+  cursor: pointer;
+}
+.top-bar, .progress-area .song-timer, 
+.controls, .music-list ul li{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.top-bar span{
+  font-size: 18px;
+  margin-left: -3px;
+  color: black;
+  width: 100%;
+  text-align: center;
+}
+.img-area{
+  width: 100%;
+  height: 256px;
+  overflow: hidden;
+  margin-top: 25px;/*
+  box-shadow: 0px 6px 12px var(--lightbshadow);*/
+}
+.img-area img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.song-details{
+  text-align: center;
+  margin: 30px 0;
+  color: black;
+}
+/*.song-details p{
+  color: black;
+}*/
+.song-details .name{
+  font-size: 25px;
+}
+.song-details .artist{
+  font-size: 22px;
+  line-height: 35px;
+  opacity: 0.5;
+}
+.progress-area{
+  height: 6px;
+  width: 100%;
+  background: var(--gray);
+  cursor: pointer;
+}
+.progress-area .progress-bar{
+  height: inherit;
+  width: 0%;
+  position: relative;
+  background: var(--orange);
+}
+.progress-bar::before{
+  content: "";
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  top: 50%;
+  right: -5px;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%);
+  background: inherit;
+  transition: opacity 0.2s ease;
+}
+.progress-area:hover .progress-bar::before{
+  opacity: 1;
+  pointer-events: auto;
+}
+.progress-area .song-timer{
+  margin-top: 2px;
+}
+.song-timer span{
+  font-size: 13px;
+  color: black;
+}
+.controls{
+  margin: 40px 0 5px 0;
+}
+.controls i{
+  font-size: 40px;
+  user-select: none;
+  background: var(--blue);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.controls #prev{
+  margin-right: -13px;
+}
+.controls #next{
+  margin-left: -13px;
+}
+.controls .play-pause{
+  height: 50px;
+  width: 50px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: white;
+  /*box-shadow: 0px 0px 5px var(--pink);*/
+}
+.play-pause::before{
+  position: absolute;
+  content: "";
+  height: 50px;
+  width: 50px;
+  border-radius: inherit;
+  background: var(--orange);
+}
+.play-pause i{
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: inherit;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: absolute;
+}
+
+
+ul li .audio-duration{
+  font-size: 18px;
+}
+ul li.playing{
+  pointer-events: none;
+  color: var(--orange);
+}
